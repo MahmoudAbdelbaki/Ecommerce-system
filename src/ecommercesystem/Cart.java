@@ -34,7 +34,7 @@ public class Cart {
     }
 
     // calculate price
-    public float calculatePrice() {
+    private float calculatePrice() {
         float total = 0;
         for (Product p : products) {
             total += p.get_price();
@@ -42,14 +42,19 @@ public class Cart {
         return total;
     }
 
+    public float getTotalPrice(){
+        return calculatePrice();
+    }
     // place Order
     public Order placeOrder(int orderId) {
-        return new Order(customerId, orderId, new ArrayList<>(products), calculatePrice());
+        return new Order(customerId, orderId, new ArrayList<>(products), getTotalPrice());
     }
 
     //get method for Array product(s)
     public List<Product> get_products() {
-        return products;
+        return new ArrayList<> (products); 
+        // returns a copy to isure eencapsulation 
+        // cart.get_products.clear() (RISK)
     }
 
 }
