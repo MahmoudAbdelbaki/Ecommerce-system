@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ecommercesystem;
 
-/**
- *
- * @author ELKARANK
- */
 import java.util.*;
 
 public class Cart {
@@ -45,7 +37,8 @@ public class Cart {
     public float getTotalPrice(){
         return calculatePrice();
     }
-    // place Order
+
+   // place Order
     public Order placeOrder(int orderId) {
         return new Order(customerId, orderId, new ArrayList<>(products), getTotalPrice());
     }
@@ -56,5 +49,10 @@ public class Cart {
         // returns a copy to isure eencapsulation 
         // cart.get_products.clear() (RISK)
     }
-
+    // note from div
+    //
+    // note: i used arraylist instead of a fixed array cause it has add and remove build_in functions 
+    // and cause it is dynamic so you i don't have to resize the array or shift
+    // the elements when i remove and i don't have to use int nProducts
+    // and i used the interface (list<>) so i won't break encapsulation (am not sure if we took encapsulation or not)
 }
